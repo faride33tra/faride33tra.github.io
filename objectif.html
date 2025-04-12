@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objectifs | Faride Traore</title>
+    <link rel="stylesheet" href="commun.css">
+    <link rel="stylesheet" href="accueil.css">
+<body>
+
+    <header class="entete">
+        <div class="logo">
+            <span class="logo-texte">FT</span>
+        </div>
+        <div class="identite">
+            <h1>Faride Traore</h1>
+            <p class="slogan" style="color: rgb(157, 103, 8);">Du pixel à la perfection !</p>
+        </div>
+        <div class="menu-bouton" id="menuBouton">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <nav class="navigation" id="menuNavigation">
+        <ul>
+            <li><a href="index.html" class="actif">Accueil</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <center><h1 class="titre-page" id="texteAnime" style="color: rgb(81, 81, 244);"></h1></center>
+    <main>
+        <section class="bienvenue section-encadree">
+            <h2>Objectifs académiques</h2>
+        <ul>
+            <li>Démontrer les compétences techniques acquises en programmation web (HTML, CSS,)</li>
+            <li>Mettre en pratique les connaissances théoriques vues en cours</li>
+            <li>Créer une base solide pour mes futurs projets web</li>
+            <li>Acquérir de l'autonomie dans la création de sites web</li>
+        </ul>
+        
+        <h2>Objectifs professionnels</h2>
+        <ul>
+            <li>Constituer un premier outil a présenter pour d'éventuels stages</li>
+            <li>Mettre en valeur mes compétences et réalisations</li>
+            <li>Documenter ma progression et démontrer mes capacites</li>
+            <li>Me démarquer des autres étudiants par un design soigné et personnel</li>
+        </ul>
+            <h2>Objectifs personnel</h2>
+            <p>Démontrer et renforcer mes capacitées autodidactes. Je m'efforce d'améliorer mes compétences en permanence, d'adopter les dernières technologies et de proposer des solutions innovantes adaptées aux besoins des utilisateurs.</p>
+            <p>À travers ce portfolio, je souhaite démontrer mon engagement envers la qualité, l'apprentissage continu et l'innovation dans le domaine du développement web.</p>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('menuBouton').addEventListener('click', function() {
+            const menu = document.getElementById('menuNavigation');
+            menu.classList.toggle('visible');
+        });
+    </script>
+    <script>
+       
+        const texte = "Objectifs de mon portfolio";
+        const texteAnime = document.getElementById('texteAnime');
+        
+        let index = 0;
+        
+        function afficherLettreParLettre() {
+            if (index < texte.length) {
+                texteAnime.innerHTML += texte.charAt(index);
+                index++;
+                setTimeout(afficherLettreParLettre, 60); 
+            }
+        }
+        
+        
+        window.onload = afficherLettreParLettre;
+        </script>
+
+</body>
+</html>

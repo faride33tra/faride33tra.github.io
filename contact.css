@@ -1,0 +1,213 @@
+/* Styles spécifiques à la page de contact */
+
+.contact-intro {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('https://via.placeholder.com/1200x400');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-intro h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-intro h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+}
+
+.contact-intro p {
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    color: #475569;
+}
+
+.contact-contenu {
+    padding: 3rem 2rem;
+}
+
+.contact-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.formulaire-contact {
+    flex: 1 1 60%;
+    min-width: 300px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-top: 4px solid #2563eb;
+}
+
+.infos-contact {
+    flex: 1 1 30%;
+    min-width: 250px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-top: 4px solid #2563eb;
+}
+
+.formulaire-contact h3, .infos-contact h3 {
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.formulaire-contact h3 i, .infos-contact h3 i {
+    color: #2563eb;
+    margin-right: 0.5rem;
+}
+
+.form-groupe {
+    margin-bottom: 1.5rem;
+}
+
+.form-groupe label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #334155;
+    font-weight: 500;
+}
+
+.form-groupe input,
+.form-groupe select,
+.form-groupe textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-groupe input:focus,
+.form-groupe select:focus,
+.form-groupe textarea:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.required {
+    color: #dc2626;
+}
+
+.bouton-principal {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+}
+
+.bouton-principal:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style des informations de contact */
+.info-item {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: #2563eb;
+    margin-right: 1rem;
+    width: 2rem;
+    text-align: center;
+}
+
+.info-item h4 {
+    margin-bottom: 0.25rem;
+    color: #334155;
+}
+
+.info-item p {
+    color: #64748b;
+}
+
+.info-item a {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-item a:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.contact-socials {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e2e8f0;
+}
+
+.contact-socials h4 {
+    margin-bottom: 1rem;
+    color: #334155;
+}
+
+.contact-socials .reseaux-sociaux {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-socials .reseaux-sociaux a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #f1f5f9;
+    border-radius: 50%;
+    color: #2563eb;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.contact-socials .reseaux-sociaux a:hover {
+    background-color: #2563eb;
+    color: white;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .contact-intro {
+        padding: 2rem 1rem;
+    }
+    
+    .contact-intro h2 {
+        font-size: 1.8rem;
+    }
+    
+    .contact-flex {
+        flex-direction: column;
+    }
+    
+    .formulaire-contact,
+    .infos-contact {
+        min-width: 100%;
+    }
+}

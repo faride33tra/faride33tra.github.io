@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Faride Traore</title>
+    <link rel="stylesheet" href="commun.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+   
+    <header class="entete">
+        <div class="logo">
+            <span class="logo-texte">FT</span>
+        </div>
+        <div class="identite">
+            <h1>Faride Traore</h1>
+            <p class="slogan" style="color: rgb(157, 103, 8);">Du pixel à la perfection. !</p>
+        </div>
+        <div class="menu-bouton" id="menuBouton">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    
+    <nav class="navigation" id="menuNavigation">
+        <ul>
+            <li><a href="index.html" class="actif">Accueil</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    
+    <main>
+        <section class="contact-intro section-encadree">
+            <h2 id="texteAnime" style="color: rgb(81, 81, 244);"></h2>
+            <p>Vous avez un projet en tête ou une question ? N'hésitez pas à me contacter. Je suis toujours à la recherche de nouveaux défis et collaborations.</p>
+            <p>Remplissez le formulaire ci-dessous ou utilisez les coordonnées directes pour me joindre. Je vous répondrai dans les plus brefs délais.</p>
+        </section>
+
+        <section class="contact-contenu section-encadree">
+            <div class="contact-flex">
+                <div class="formulaire-contact">
+                    <h3><i class="fas fa-paper-plane"></i> Envoyez-moi un message</h3>
+                    <form id="contactForm" action="#" method="POST">
+                        <div class="form-groupe">
+                            <label for="nom">Nom <span class="required">*</span></label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        <div class="form-groupe">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-groupe">
+                            <label for="telephone">Téléphone</label>
+                            <input type="tel" id="telephone" name="telephone">
+                        </div>
+                        <div class="form-groupe">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="bouton-principal">Envoyer message</button>
+                    </form>
+                </div>
+
+                <div class="infos-contact">
+                    <h3><i class="fas fa-address-card"></i> Informations de contact</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>📍 Adresse</h4>
+                            <p>Accar-ville<br>Bobo Dioulasso</p>
+                            <p>Burkina faso</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>✉️Email</h4>
+                            <p><a href="#">traore33faride@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>📞Téléphone</h4>
+                            <p><a href="#">75 51 67 22</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>🕗 Disponibilité</h4>
+                            <p>Lundi - Dimanche : 00h00 - 00h00</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-socials">
+                        <h4>Retrouvez-moi aussi sur</h4>
+                        <div class="reseaux-sociaux">
+                            <a href="https://github.com/faride33tra" title="GitHub">github</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <footer>
+        <div class="footer-contenu">
+            <div class="footer-colonne">
+                <h3>Faride Traore</h3>
+                <p>Développeur Web</p>
+                <p>Ingenieur logiciel</p>
+                
+            </div>
+            <div class="footer-colonne">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="competences.html">Compétences</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                </ul>
+            </div>
+            <div class="footer-colonne">
+                <h3>Contact</h3>
+                <p>✉️ traore33faride@gmail.com</p>
+                <p>📞+226 75 51 67 22</p>
+            </div>
+            <div class="footer-colonne">
+                <h3>Suivez-moi</h3>
+                <div class="reseaux-sociaux">
+                    <a href="https://github.com/faride33tra">github</a>
+                </div>
+            </div>
+        </div>
+        <div class="mentions-legales">
+            <p>&copy; 2025 Faride Traore. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        
+        document.getElementById('menuBouton').addEventListener('click', function() {
+            const menu = document.getElementById('menuNavigation');
+            menu.classList.toggle('visible');
+        });
+    </script>
+     <script>
+       
+        const texte = "Contactez-moi";
+        const texteAnime = document.getElementById('texteAnime');
+        
+        let index = 0;
+        
+        function afficherLettreParLettre() {
+            if (index < texte.length) {
+                texteAnime.innerHTML += texte.charAt(index);
+                index++;
+                setTimeout(afficherLettreParLettre, 60); 
+            }
+        }
+        
+        
+        window.onload = afficherLettreParLettre;
+        </script>
+</body>
+</html>

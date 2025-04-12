@@ -1,0 +1,139 @@
+/* Styles spécifiques à la page des projets */
+
+.titre-page {
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 2rem 0;
+    color: #1e293b;
+}
+
+.projets-conteneur {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.projet {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+}
+
+.projet-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.projet-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.projet:hover .projet-image img {
+    transform: scale(1.05);
+}
+
+.projet-contenu {
+    padding: 2rem;
+}
+
+.projet-categorie {
+    color: #2563eb;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.projet-description {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.projet-technos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.projet-technos span {
+    background-color: #f1f5f9;
+    color: #334155;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.projet-technos span:hover {
+    background-color: #2563eb;
+    color: white;
+}
+
+.projet-liens {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.bouton-secondaire {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #f1f5f9;
+    color: #334155;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.bouton-secondaire:hover {
+    background-color: #e2e8f0;
+    color: #1e293b;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .projet {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    
+    .projet-image {
+        flex: 1;
+        max-width: 40%;
+    }
+    
+    .projet-image img {
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .projet-contenu {
+        flex: 1.5;
+    }
+    
+    .projet:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
+
+@media (max-width: 767px) {
+    .projet-liens {
+        flex-direction: column;
+    }
+    
+    .bouton-principal, .bouton-secondaire {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}

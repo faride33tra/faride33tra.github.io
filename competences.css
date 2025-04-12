@@ -1,0 +1,114 @@
+/* Styles spécifiques à la page de compétences */
+
+.titre-page {
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 2rem 0;
+    color: #1e293b;
+}
+
+.competences-conteneur {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.competence {
+    background-color: #f8fafc;
+    border-radius: 6px;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.competence:hover {
+    transform: translateX(10px);
+}
+
+.competence-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.competence-nom {
+    font-weight: 500;
+    color: #334155;
+}
+
+.competence-niveau {
+    color: #64748b;
+}
+
+.barre-progression {
+    width: 100%;
+    height: 8px;
+    background-color: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progression {
+    height: 100%;
+    background: linear-gradient(90deg, #2563eb, #4f46e5);
+    border-radius: 10px;
+    transition: width 1s ease;
+}
+
+/* Styles pour la section des outils */
+.outils-grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.outil {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.outil:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.outil-icone {
+    font-size: 2rem;
+    color: #2563eb;
+    margin-bottom: 1rem;
+}
+
+.outil h3 {
+    color: #334155;
+    margin-bottom: 0.5rem;
+}
+
+.outil p {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Animation à l'apparition de la page */
+@keyframes progressAnimation {
+    from { width: 0; }
+}
+
+.progression {
+    animation: progressAnimation 1.5s ease-out forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .outils-grille {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .outils-grille {
+        grid-template-columns: 1fr;
+    }
+}

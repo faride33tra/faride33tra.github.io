@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Photo - Accueil</title>
+    <link rel="stylesheet" href="projet2.css">
+</head>
+<body>
+    <header>
+        <div class="logo">L'Œil du Photographe</div>
+        <div class="slogan" id="slogan"></div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Galerie</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="gallery-intro">
+            <h2>Capturons ensemble vos moments précieux</h2>
+            <p>Bienvenue dans mon univers photographique où chaque cliché raconte une histoire unique. Explorez ma galerie et découvrez comment je peux immortaliser vos plus beaux moments.</p>
+        </div>
+        
+        <div class="gallery">
+            <div class="gallery-item"><img src="1.jpg" alt="photo"></div>
+            <div class="gallery-item"><img src="2.jpg" alt="photo"></div>
+            <div class="gallery-item"><img src="3.jpg" alt=""></div>
+            <div class="gallery-item"><img src="4.jpg" alt="photo"></div>
+            <div class="gallery-item"><img src="5.jpg" alt="photo"></div>
+            <div class="gallery-item"><img src="6.jpg" alt="photo"></div>
+        </div>
+    </div>
+    
+    <section class="featured">
+        <div class="featured-container">
+            <h2>Photos en vedette</h2>
+            <div class="featured-item"><img src="10.jpg" alt="photo"></div>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="gallery">
+            <div class="gallery-item"><img src="7.jpg" alt="photo"></div>
+            <div class="gallery-item"><img src="8.jpg" alt="photo"></div>
+            <div class="gallery-item"><img src="9.jpg" alt="photo"></div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="logo">L'Œil du Photographe</div>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Pinterest</a>
+            </div>
+            <div class="contact-info">
+                <p>contact@oeilphotographe.fr | +00 01 02 03 04</p>
+                <p>© 2025 L'Œil du Photographe. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slogan = "Capturer l'émotion, figer l'instant";
+            const sloganElement = document.getElementById('slogan');
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < slogan.length) {
+                    sloganElement.innerHTML += slogan.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            typeWriter();
+        });
+    </script>
+</body>
+</html>

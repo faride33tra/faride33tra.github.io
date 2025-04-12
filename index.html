@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Faride Traore</title>
+    <link rel="stylesheet" href="commun.css">
+    <link rel="stylesheet" href="accueil.css">
+</head>
+<body>
+    
+    <header class="entete">
+        <div class="logo">
+            <span class="logo-texte">FT</span>
+        </div>
+        <div class="identite">
+            <h1>Faride Traore</h1>
+            <p class="slogan" style="color: rgb(157, 103, 8);">Du pixel à la perfection. !</p>
+        </div>
+        <div class="menu-bouton" id="menuBouton">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+   
+    <nav class="navigation" id="menuNavigation">
+        <ul>
+            <li><a href="index.html" class="actif">Accueil</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+   
+    <main>
+        <section class="bienvenue section-encadree">
+            <h2 id="texteAnime" style="color: rgb(81, 81, 244);"></h2>
+            <p>Bonjour et bienvenue ! Je suis <strong>Faride Traore</strong>, développeur web passionné par la création d'applications et de site web modernes et esthétiques en particulier et le monde de l'informatique en général</p>
+            <p>Ce portfolio vous présente mes compétences, mes réalisations et mon parcours dans le domaine du développement web pour cette année scolaire 2025.</p>
+            <p>N'hésitez pas à explorer les différentes sections pour en savoir plus sur moi et mes services.</p>
+            <a href="contact.html" class="bouton-principal">Me contacter</a>
+            <a href="objectif.html" class="bouton-principal">Objectifs</a>
+        </section>
+
+        <section class="introduction section-encadree">
+            <h2>Ce que je fais</h2>
+            <div class="cartes-services">
+                <div class="carte">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Développement Front-end</h3>
+                    <p>Création d'interfaces utilisateur réactives et intuitives avec HTML, CSS et JavaScript.</p>
+                </div>
+                <div class="carte">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Design Responsive</h3>
+                    <p>En cours de maitrise</p>
+                   
+                    <p>*****</p>
+                    <p>****</p>
+                    <p>***</p>
+                    <p>**</p>
+                    <p>*</p>
+                </div>
+                <div class="carte">
+                    <i class="fas fa-server"></i>
+                    <h3>Développement Back-end</h3>
+                    <p>En cours de maitrise</p>
+                   
+                    <p>*****</p>
+                    <p>****</p>
+                    <p>***</p>
+                    <p>**</p>
+                    <p>*</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   
+    <footer>
+        <div class="footer-contenu">
+            <div class="footer-colonne">
+                <h3>Faride Traore</h3>
+                <p>Développeur Web</p>
+                <p>Ingenieur logiciel</p>
+            </div>
+            <div class="footer-colonne">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="competences.html">Compétences</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                </ul>
+            </div>
+            <div class="footer-colonne">
+                <h3>Contact</h3>
+                <p>✉️ traore33faride@gmail.com</p>
+                <p>📞+226 75 51 67 22</p>
+            </div>
+            <div class="footer-colonne">
+                <h3>Suivez-moi</h3>
+                <div class="reseaux-sociaux">
+                    <a href="https://github.com/faride33tra" >github</a>
+                </div>
+            </div>
+        </div>
+        <div class="mentions-legales">
+            <p>&copy; 2025 Faride Traore. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        
+        document.getElementById('menuBouton').addEventListener('click', function() {
+            const menu = document.getElementById('menuNavigation');
+            menu.classList.toggle('visible');
+        });
+    </script>
+    <script>
+       
+        const texte = "Bienvenue sur mon portfolio";
+        const texteAnime = document.getElementById('texteAnime');
+        
+        let index = 0;
+        
+        function afficherLettreParLettre() {
+            if (index < texte.length) {
+                texteAnime.innerHTML += texte.charAt(index);
+                index++;
+                setTimeout(afficherLettreParLettre, 60); 
+            }
+        }
+        
+        
+        window.onload = afficherLettreParLettre;
+        </script>
+</body>
+</html>

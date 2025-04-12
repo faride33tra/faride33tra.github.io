@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Projets | Faride Traore</title>
+    <link rel="stylesheet" href="commun.css">
+    <link rel="stylesheet" href="projets.css">
+</head>
+<body>
+    
+    <header class="entete">
+        <div class="logo">
+            <span class="logo-texte">FT</span>
+        </div>
+        <div class="identite">
+            <h1>Faride Traore</h1>
+            <p class="slogan" style="color: rgb(157, 103, 8);">Du pixel à la perfection. !</p>
+        </div>
+        <div class="menu-bouton" id="menuBouton">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    
+    <nav class="navigation" id="menuNavigation">
+        <ul>
+            <li><a href="index.html" class="actif">Accueil</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+   
+    <main>
+        <h1 class="titre-page" id="texteAnime" style="color: rgb(81, 81, 244);"></h1>
+        
+        <div class="projets-conteneur">
+            <article class="projet section-encadree">
+                <div class="projet-image">
+                    <img src="portfolio.jpg" alt="portfolio">
+                </div>
+                <div class="projet-contenu">
+                    <h2>Portfolio personnel </h2>
+                    <p class="projet-categorie">Développement Front-end</p>
+                    <p class="projet-description">
+                        Conception d'un portfolio personnel developer web avec une interface utilisateur intuitive.
+                    </p>
+                    <div class="projet-technos">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="projet-liens">
+                        <a href="index.html" class="bouton-principal">Voir le site</a>
+                    </div>
+                </div>
+            </article>
+
+            
+
+            <article class="projet section-encadree">
+                <div class="projet-image">
+                    <img src="projet2.jpg" alt="Portfolio photographe">
+                </div>
+                <div class="projet-contenu">
+                    <h2>Portfolio pour Photographe</h2>
+                    <p class="projet-categorie">Design Web & Intégration</p>
+                    <p class="projet-description">
+                        Création d'un site portfolio pour un photographe professionnel avec une galerie d'images. <strong style="color: red;">Entraînement</strong>
+                    </p>
+                    <div class="projet-technos">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                    <div class="projet-liens">
+                        <a href="projet2.html" class="bouton-principal" target="_blank">Voir le site</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-contenu">
+            <div class="footer-colonne">
+                <h3>Faride Traore</h3>
+                <p>Développeur Web</p>
+                <p>Ingenieur logiciel</p>
+            </div>
+            <div class="footer-colonne">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="competences.html">Compétences</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                </ul>
+            </div>
+            <div class="footer-colonne">
+                <h3>Contact</h3>
+                <p>✉️traore33faride@gmail.com</p>
+                <p>📞</i>+226 75 51 67 22</p>
+            </div>
+            <div class="footer-colonne">
+                <h3>Suivez-moi</h3>
+                <div class="reseaux-sociaux">
+                    <a href="https://github.com/faride33tra">github</a>
+                </div>
+            </div>
+        </div>
+        <div class="mentions-legales">
+            <p>&copy; 2025 Faride Traore. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menuBouton').addEventListener('click', function() {
+            const menu = document.getElementById('menuNavigation');
+            menu.classList.toggle('visible');
+        });
+    </script>
+     <script>
+       
+        const texte = "Mes Projets";
+        const texteAnime = document.getElementById('texteAnime');
+        
+        let index = 0;
+        
+        function afficherLettreParLettre() {
+            if (index < texte.length) {
+                texteAnime.innerHTML += texte.charAt(index);
+                index++;
+                setTimeout(afficherLettreParLettre, 60); 
+            }
+        }
+        
+        
+        window.onload = afficherLettreParLettre;
+        </script>
+</body>
+</html>

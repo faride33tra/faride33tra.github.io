@@ -1,0 +1,84 @@
+/* Styles spécifiques à la page d'accueil */
+
+.bienvenue {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('https://via.placeholder.com/1200x600');
+    background-size: cover;
+    background-position: center;
+}
+
+.bienvenue h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.bienvenue h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+}
+
+.bienvenue p {
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    color: #475569;
+}
+
+.cartes-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.carte {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.carte:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #2563eb;
+}
+
+.carte i {
+    font-size: 2.5rem;
+    color: #2563eb;
+    margin-bottom: 1.5rem;
+}
+
+.carte h3 {
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.carte p {
+    color: #64748b;
+}
+
+@media (max-width: 768px) {
+    .bienvenue {
+        padding: 2rem 1rem;
+    }
+    
+    .bienvenue h2 {
+        font-size: 1.8rem;
+    }
+    
+    .carte {
+        min-width: 100%;
+    }
+}

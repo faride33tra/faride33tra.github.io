@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétences | Faride Traore</title>
+    <link rel="stylesheet" href="commun.css">
+    <link rel="stylesheet" href="competences.css">
+</head>
+<body>
+    <!-- En-tête commune à toutes les pages -->
+    <header class="entete">
+        <div class="logo">
+            <span class="logo-texte">FT</span>
+        </div>
+        <div class="identite">
+            <h1>Faride Traore</h1>
+            <p class="slogan" style="color: rgb(157, 103, 8);">Du pixel à la perfection. !</p>
+        </div>
+        <div class="menu-bouton" id="menuBouton">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    
+    <nav class="navigation" id="menuNavigation">
+        <ul>
+            <li><a href="index.html" class="actif">Accueil</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main>
+        <h1 class="titre-page" id="texteAnime"style="color: rgb(81, 81, 244);"></h1>
+        
+        <section class="section-encadree" id="competences-dev">
+            <h2>Développement Web</h2>
+            <div class="competences-conteneur">
+                <div class="competence">
+                    <div class="competence-info">
+                        <span class="competence-nom">HTML5</span>
+                        <span class="competence-niveau">90%</span>
+                    </div>
+                    <div class="barre-progression">
+                        <div class="progression" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="competence">
+                    <div class="competence-info">
+                        <span class="competence-nom">CSS3</span>
+                        <span class="competence-niveau">85%</span>
+                    </div>
+                    <div class="barre-progression">
+                        <div class="progression" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="competence">
+                    <div class="competence-info">
+                        <span class="competence-nom">JavaScript</span>
+                        <span class="competence-niveau">75%</span>
+                    </div>
+                    <div class="barre-progression">
+                        <div class="progression" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+             </div>    
+                
+                
+           
+        </section>
+
+        <section class="section-encadree" id="langages-prog">
+            <h2>Langages de Programmation</h2>
+            <div class="competences-conteneur">
+                <div class="competence">
+                    <div class="competence-info">
+                        <span class="competence-nom">C</span>
+                        <span class="competence-niveau">80%</span>
+                    </div>
+                    <div class="barre-progression">
+                        <div class="progression" style="width: 80%"></div>
+                    </div>
+                </div>
+                
+                <div class="competence">
+                    <div class="competence-info">
+                        <span class="competence-nom">C++</span>
+                        <span class="competence-niveau">35%</span>
+                    </div>
+                    <div class="barre-progression">
+                        <div class="progression" style="width: 35%"></div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        <section class="section-encadree" id="outils">
+            <h2>Outils et Environnements</h2>
+            <div class="outils-grille">
+                <div class="outil">
+                   
+                    <h3>&lt;&gt;VS Code</h3>
+                    <p>Éditeur de code principal</p>
+                </div>
+                
+                <div class="outil">
+                    
+                    <h3>GitHub</h3>
+                    <p>Gestion de version et collaboration</p>
+                </div>
+                
+                <div class="outil">
+                    
+                    <h3>Figma</h3>
+                    <p>Design et prototypage</p>
+                </div>
+                
+                <div class="outil">
+                    
+                    <h3>/&gt;Terminal</h3>
+                    <p>Ligne de commande et automatisation</p>
+                </div>
+                
+                
+            </div>
+        </section>
+        <div class="section-encadree">
+            <h2>Maintenance informatique💻🛠️</h2>
+        </div>
+    </main>
+
+    
+    <footer>
+        <div class="footer-contenu">
+            <div class="footer-colonne">
+                <h3>Faride Traore</h3>
+                <p>Développeur Web</p>
+                <p>Ingenieur logiciel</p>
+            </div>
+            <div class="footer-colonne">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="competences.html">Compétences</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                </ul>
+            </div>
+            <div class="footer-colonne">
+                <h3>Contact</h3>
+                <p>✉️ traore33faride@gmail.com</p>
+                <p>📞+226 75 51 67 22</p>
+            </div>
+            <div class="footer-colonne">
+                <h3>Suivez-moi</h3>
+                <div class="reseaux-sociaux">
+                    <a href="https://github.com/faride33tra">github</a>
+                </div>
+            </div>
+        </div>
+        <div class="mentions-legales">
+            <p>&copy; 2025 Faride Traore. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        
+        document.getElementById('menuBouton').addEventListener('click', function() {
+            const menu = document.getElementById('menuNavigation');
+            menu.classList.toggle('visible');
+        });
+    </script>
+    <script>
+      
+        const texte = "Mes compétences";
+        const texteAnime = document.getElementById('texteAnime');
+        
+        let index = 0;
+        
+        function afficherLettreParLettre() {
+            if (index < texte.length) {
+                texteAnime.innerHTML += texte.charAt(index);
+                index++;
+                setTimeout(afficherLettreParLettre, 60); 
+            }
+        }
+        
+        
+        window.onload = afficherLettreParLettre;
+        </script>
+</body>
+</html>
