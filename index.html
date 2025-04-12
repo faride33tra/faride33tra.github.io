@@ -18,8 +18,11 @@
             <p class="slogan" style="color: rgb(157, 103, 8);">Du pixel à la perfection. !</p>
         </div>
         <div class="menu-bouton" id="menuBouton">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars">===</i>
         </div>
+        <div class="menu-defilement">
+        <button id="scrollMenuButton">Faire défiler le menu</button>
+    </div>
     </header>
 
    
@@ -118,6 +121,13 @@
             menu.classList.toggle('visible');
         });
     </script>
+    <script>
+    // Fonction pour faire défiler le menu
+    document.getElementById('scrollMenuButton').addEventListener('click', function () {
+        const menu = document.getElementById('menuNavigation');
+        menu.scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
     <script>
        
         const texte = "Bienvenue sur mon portfolio";
