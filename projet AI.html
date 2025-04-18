@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de Bord - Gestion d'Argent Étudiant</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .expense-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 5px;
+    }
+    .form-section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">Gestion de mon argent</h1>
+
+    <div class="form-section">
+      <h4>Ajouter un revenu</h4>
+      <div class="input-group mb-3">
+        <input type="number" id="revenu" class="form-control" placeholder="Montant du revenu">
+        <button class="btn btn-success" onclick="ajouterRevenu()">Ajouter</button>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h4>Ajouter une dépense</h4>
+      <div class="row g-2">
+        <div class="col-md-4">
+          <input type="number" id="depense" class="form-control" placeholder="Montant de la dépense">
+        </div>
+        <div class="col-md-4">
+          <input type="date" id="dateDepense" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <select id="typeDepense" class="form-select"></select>
+        </div>
+      </div>
+      <div class="mt-2">
+        <button class="btn btn-danger" onclick="ajouterDepense()">Ajouter</button>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h4>Solde actuel</h4>
+      <h2 id="solde">0 €</h2>
+    </div>
+
+    <div class="form-section">
+      <h4>Répartition des dépenses</h4>
+      <canvas id="chartDepenses"></canvas>
+    </div>
+
+    <div class="form-section">
+      <h4>Dépenses par mois et par type</h4>
+      <canvas id="chartMensuel"></canvas>
+    </div>
+  </div>
+
+  <script>
+    let revenus = 0;
+    let depenses = [];
+
+    const depenseTypes = {
+      "🍔 Restaurant": "Restaurant", "🔧 Réparation": "Réparation", "💸 Dette": "Dette", "⛽ Essence": "Essence",
+      "🛒 Épicerie": "Épicerie", "🚌 Transport": "Transport", "📺 Abonnement Netflix": "Abonnement Netflix",
+      "🎵 Abonnement Spotify": "Abonnement Spotify", "☕ Café": "Café", "🍫 Snack": "Snack",
+      "📚 Livres": "Livres", "✏️ Matériel scolaire": "Matériel scolaire", "👕 Vêtements": "Vêtements",
+      "👟 Chaussures": "Chaussures", "🎉 Sortie": "Sortie", "🎬 Cinéma": "Cinéma",
+      "✈️ Voyage": "Voyage", "🏠 Location": "Location", "🛡️ Assurance": "Assurance",
+      "🌐 Internet": "Internet", "📱 Téléphone": "Téléphone", "💡 Électricité": "Électricité",
+      "🚰 Eau": "Eau", "🏦 Frais bancaires": "Frais bancaires", "⚕️ Frais médicaux": "Frais médicaux",
+      "👨‍⚕️ Médecin": "Médecin", "💊 Pharmacie": "Pharmacie", "💇‍♂️ Coiffeur": "Coiffeur",
+      "🧴 Produits de beauté": "Produits de beauté", "🧼 Hygiène": "Hygiène", "🏋️‍♂️ Abonnement sport": "Abonnement sport",
+      "🏋️ Salle de sport": "Salle de sport", "🎮 Jeux vidéo": "Jeux vidéo", "🖥️ Matériel informatique": "Matériel informatique",
+      "💻 PC": "PC", "🔑 Clé USB": "Clé USB", "🖨️ Impression": "Impression",
+      "📄 Papeterie": "Papeterie", "🚖 Taxi": "Taxi", "🚗 Uber": "Uber", "🚲 Vélo": "Vélo",
+      "🚆 Bus": "Bus", "🚄 Train": "Train", "📑 Frais de dossier": "Frais de dossier",
+      "🏫 Inscription université": "Inscription université", "💰 Caution": "Caution",
+      "🎓 Frais de scolarité": "Frais de scolarité", "📘 Cours privés": "Cours privés",
+      "👨‍🏫 Tutorat": "Tutorat", "🎁 Cadeaux": "Cadeaux", "🎂 Anniversaire": "Anniversaire",
+      "🙏 Don": "Don", "🤝 Bénévolat": "Bénévolat", "🎊 Événement étudiant": "Événement étudiant",
+      "🍻 Soirée": "Soirée", "🍺 Bière": "Bière", "🍷 Vin": "Vin", "🥤 Boisson": "Boisson",
+      "🍟 Repas rapide": "Repas rapide", "🍕 Pizzeria": "Pizzeria", "🥙 Kebab": "Kebab",
+      "🥪 Sandwich": "Sandwich", "🧳 Frais de voyage": "Frais de voyage", "🅿️ Parking": "Parking",
+      "🛣️ Péage": "Péage", "🔧 Entretien voiture": "Entretien voiture", "🛢️ Huile moteur": "Huile moteur",
+      "🧼 Lavage voiture": "Lavage voiture", "📋 Frais d'examen": "Frais d'examen",
+      "🚗 Permis de conduire": "Permis de conduire", "📝 Test code": "Test code",
+      "⏰ Retard de paiement": "Retard de paiement", "🚨 Amende": "Amende",
+      "📄 Taxes": "Taxes", "🗞️ Abonnement journal": "Abonnement journal",
+      "🎨 Matériel artistique": "Matériel artistique", "🖌️ Peinture": "Peinture",
+      "🎼 Musique": "Musique", "🎸 Instrument": "Instrument", "🖨️ Photocopie": "Photocopie",
+      "📷 Scanner": "Scanner", "📦 Fournitures diverses": "Fournitures diverses",
+      "❓ Dépenses imprévues": "Dépenses imprévues", "🔋 Batterie téléphone": "Batterie téléphone",
+      "🔌 Chargeur": "Chargeur", "🔌 Adaptateur": "Adaptateur", "💾 Carte mémoire": "Carte mémoire",
+      "📱 Accessoire téléphone": "Accessoire téléphone", "🎫 Carnet de tickets": "Carnet de tickets",
+      "🔑 Clé perdue": "Clé perdue", "🧾 Frais de remplacement": "Frais de remplacement",
+      "☕ Café universitaire": "Café universitaire", "💧 Bouteille d'eau": "Bouteille d'eau",
+      "🍬 Bonbons": "Bonbons", "🍫 Chocolat": "Chocolat", "🍦 Glace": "Glace",
+      "🍔 Fast-food": "Fast-food", "🎭 Événement culturel": "Événement culturel"
+    };
+
+    const select = document.getElementById("typeDepense");
+    for (let [emoji, type] of Object.entries(depenseTypes)) {
+      const option = document.createElement("option");
+      option.textContent = emoji;
+      option.value = type;
+      select.appendChild(option);
+    }
+
+    function ajouterRevenu() {
+      const montant = parseFloat(document.getElementById("revenu").value);
+      if (!isNaN(montant)) {
+        revenus += montant;
+        document.getElementById("revenu").value = "";
+        mettreAJour();
+      }
+    }
+
+    function ajouterDepense() {
+      const montant = parseFloat(document.getElementById("depense").value);
+      const date = document.getElementById("dateDepense").value;
+      const type = document.getElementById("typeDepense").value;
+
+      if (!isNaN(montant) && date && type) {
+        depenses.push({ montant, date, type });
+        document.getElementById("depense").value = "";
+        mettreAJour();
+      }
+    }
+
+    function mettreAJour() {
+      const totalDepense = depenses.reduce((sum, d) => sum + d.montant, 0);
+      const solde = revenus - totalDepense;
+      document.getElementById("solde").textContent = solde.toFixed(2) + " €";
+      afficherGraphique();
+      afficherGraphiqueMensuel();
+    }
+
+    function afficherGraphique() {
+      const grouped = {};
+      depenses.forEach(d => {
+        if (!grouped[d.type]) grouped[d.type] = 0;
+        grouped[d.type] += d.montant;
+      });
+
+      const ctx = document.getElementById('chartDepenses').getContext('2d');
+      if (window.chartInstance) window.chartInstance.destroy();
+      window.chartInstance = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: Object.keys(grouped),
+          datasets: [{
+            data: Object.values(grouped),
+            backgroundColor: Object.keys(grouped).map(() => '#' + Math.floor(Math.random()*16777215).toString(16))
+          }]
+        }
+      });
+    }
+
+    function afficherGraphiqueMensuel() {
+      const parMoisEtType = {};
+      depenses.forEach(d => {
+        const mois = new Date(d.date).toLocaleString('fr-FR', { month: 'short', year: 'numeric' });
+        if (!parMoisEtType[mois]) parMoisEtType[mois] = {};
+        if (!parMoisEtType[mois][d.type]) parMoisEtType[mois][d.type] = 0;
+        parMoisEtType[mois][d.type] += d.montant;
+      });
+
+      const moisLabels = Object.keys(parMoisEtType);
+      const tousTypes = new Set();
+      moisLabels.forEach(mois => {
+        Object.keys(parMoisEtType[mois]).forEach(type => tousTypes.add(type));
+      });
+
+      const datasets = Array.from(tousTypes).map(type => {
+        return {
+          label: type,
+          data: moisLabels.map(mois => parMoisEtType[mois][type] || 0),
+          backgroundColor: '#' + Math.floor(Math.random() * 16777215).toString(16)
+        };
+      });
+
+      const ctx = document.getElementById('chartMensuel').getContext('2d');
+      if (window.barChartInstance) window.barChartInstance.destroy();
+      window.barChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: moisLabels,
+          datasets: datasets
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'top' },
+            title: { display: true, text: 'Répartition des dépenses par mois et type' }
+          },
+          scales: {
+            x: { stacked: true },
+            y: { stacked: true }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
