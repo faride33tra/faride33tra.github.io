@@ -24,3 +24,9 @@ body {
   background-color: black;
 
 }
+.gauche {
+  position: absolute;
+  left: 20px;
+  top: 150px;  
+  width: 200px; 
+}
