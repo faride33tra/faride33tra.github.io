@@ -1,0 +1,26 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  margin-top: 50px;
+  background-color: aqua;
+}
+#result {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  background-color: rgb(2, 53, 55);
+  color: white;
+}
+.gauche {
+  position: absolute;
+  left: 20px;
+  top: 100px;  
+  width: 200px; 
+}
+.contenu{
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+
+}
